@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ragister form</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="form-wrap">
+            <h1>Ragistration form</h1>
+            <form name="myform" onsubmit="return myfun()">
+                <div class="form-group">
+                    <label for="username">user name</label>
+                    <input type="text"  id="username" placeholder="username">
+                
+                </div>
+                <div class="form-group">
+                    <label for="elmai">Email</label>
+                    <input type="text" id="Email" value=""   placeholder="email">
+                    <span id="message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text"  id="password" placeholder="password">
+                  <span id="message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="confirmpassword">confirm Password</label>
+                    <input type="text"  id="conpassword" placeholder="confirm">
+                    <div id="confirm_error" class="val_confirm"></div>
+                </div>
+                <div> <button type="submit" class="btn">Submit</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function myfun(){
+    var a= document.getElementById("password").value;
+    var b= document.getElementById("conpassword").value;
+      var   c = document.getElementById("Email").value;
+      if(c.indexOf('@')<=0){
+        document.getElementById("message").innerHTML="**invalid @ position";
+        return false;
+      }
+   
+    if(a==""){
+document.getElementById("message").innerHTML="**plese fill password";
+return false;
+    }
+    if(a.length<5){
+        document.getElementById("message").innerHTML="**must greater than 5 char";
+        return false;
+    }
+    if(a!=b){
+        document.getElementById("message").innerHTML="**password are not same";
+        return false;
+    }
+    
+}
+
+   
+   
+  
+</script>
+</html>
